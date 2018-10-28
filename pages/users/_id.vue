@@ -9,7 +9,7 @@
 
 <script>
 export default {
-  async asyncData({ params }) {
+  async asyncData({ app, params }) {
     const { data } = await app.$wp.get(`/users/${params.id}`)
     return {
       user: data
