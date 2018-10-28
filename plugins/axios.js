@@ -7,7 +7,6 @@ let baseURL = 'https://demo1.wpapi.app/wp-json/wp/v2'
 if (process.browser && process.static) {
   baseURL = '/api'
 }
-
 const instance = axios.create({ baseURL })
 
 if (process.browser && process.static) {
@@ -40,6 +39,7 @@ if (process.server && process.static) {
 }
 
 // export default instance
-export default ({ app }, inject) => {
+export default (ctx, inject) => {
+  ctx.$wp = instance
   inject('wp', instance)
 }
