@@ -22,39 +22,24 @@ module.exports = {
   // Generate dynamic routes
   generate: {
     async routes() {
+      const Endpoints = [
+        'posts',
+        'users',
+        'pages'
+      ]
+      let routesArray = []
       const baseUrl = 'https://demo1.wpapi.app/wp-json/wp/v2'
-      const pages = await axios.get(`${baseUrl}/pages`)
-      const posts = await axios.get(`${baseUrl}/posts`)
-      const users = await axios.get(`${baseUrl}/users`)
+      // const pages = await axios.get(`${baseUrl}/pages`)
+      // const posts = await axios.get(`${baseUrl}/posts`)
+      // const users = await axios.get(`${baseUrl}/users`)
 
-      const pagesRoutes = pages.data.map(page => `/pages/${page.id}`)
-      // const pagesRoutes = pages.data.map(page => {
-      //   return {
-      //     route: page.id,
-      //     payload: page
-      //   };
-      // });
 
-      const postsRoutes = posts.data.map(post => `/posts/${post.id}`)
-      // const postsRoutes = posts.data.map(post => {
-      //   return {
-      //     route: "/blog/" + post.id,
-      //     payload: post
-      //   };
-      // });
-
-      const usersRoutes = users.data.map(user => `/users/${user.id}`)
-      // const usersRoutes = users.data.map(user => {
-      //   return {
-      //     route: user.id,
-      //     payload: user
-      //   };
-      // });
-
-      return [...pagesRoutes, ...postsRoutes, ...usersRoutes];
-      // const { data } = await axios.get('https://got2dance.wpapi.app/wp-json/wp/v2/users')
-      // return data.map(user => `/users/${user.id}`)      
-      // return routesArray
+      for (const endpoint of Endpoints) {
+        const {data} = await axios.get(`${baseUrl}/${endpoint}`)
+        const endpointRoutes = data.map(endpointItem => `/${endpoint}/${endpointItem.id}`)
+        routesArray.push(...endpointRoutes)
+      }
+      return routesArray
     }
   }
 
