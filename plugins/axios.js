@@ -5,7 +5,7 @@ let baseURL = 'https://demo1.wpapi.app/wp-json/wp/v2'
 
 
 if (process.browser && process.static) {
-  baseURL = '/data'
+  baseURL = '/api'
 }
 
 const instance = axios.create({ baseURL })
