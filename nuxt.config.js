@@ -22,7 +22,7 @@ module.exports = {
   // Generate dynamic routes
   generate: {
     async routes() {
-      const baseUrl = 'https://got2dance.wpapi.app/wp-json/wp/v2'
+      const baseUrl = 'https://demo1.wpapi.app/wp-json/wp/v2'
       const pages = await axios.get(`${baseUrl}/pages`)
       const posts = await axios.get(`${baseUrl}/posts`)
       const users = await axios.get(`${baseUrl}/users`)
