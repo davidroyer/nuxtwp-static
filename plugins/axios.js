@@ -28,9 +28,7 @@ if (process.server && process.static) {
       const path = join(process.env.dataDir, response.request.path + '.json')
       let modifiedPath = path.replace('/wp-json/wp/v2', '')
       const {request, data} = response
-      // console.log('request: ', request)
-      // console.log('data: ', data)
-      // console.log('Save', path.modifiedPath)
+      
       await mkdirp(dirname(modifiedPath))
       writeFileSync(modifiedPath, JSON.stringify(response.data))
       return response
