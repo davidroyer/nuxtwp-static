@@ -29,6 +29,18 @@ body {
     Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial,
     sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
+
+.page-enter-active,
+.page-leave-active {
+  transition: all 0.45s ease-in-out;
+  transition: all 0.45s cubic-bezier(0.55, 0, 0.1, 1);
+}
+.page-enter,
+.page-leave-active {
+  opacity: 0;
+  transform: translate(10px, 0);
+}
+
 .header {
   display: flex;
   align-items: center;
