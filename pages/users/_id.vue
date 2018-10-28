@@ -2,7 +2,6 @@
   <div>
     <h3>{{ user.name }}</h3>
     <p>{{ user.id }}</p>
-    <!-- <p>{{ user.phone }}</p> -->
     <router-link to="/users">&larr; go back</router-link>
   </div>
 </template>
