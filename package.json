@@ -1,0 +1,19 @@
+{
+  "name": "nuxtwp-static",
+  "version": "0.0.1",
+  "main": "index.js",
+  "author": "David Royer <droyer01@gmail.com>",  
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "generate": "nuxt generate",
+    "serve": "http-server dist",
+    "deploy": "surge -p dist -d https://nuxt-static.surge.sh"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.16.2",
+    "mkdirp-promise": "^5.0.1",
+    "nuxt": "^1.4.0"
+  }
+}
