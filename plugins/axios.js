@@ -1,11 +1,25 @@
 import axios from 'axios'
 let baseURL = 'https://demo1.wpapi.app/wp-json/wp/v2'
+const isDev = process.env.NODE_ENV !== 'production' ? true : false;
 
 if (process.browser && process.static) {
   baseURL = '/api'
 }
 
-const instance = axios.create({ baseURL })
+const instance = axios.create({
+  baseURL,
+})
+
+
+// if (isDev) {
+//   instance.interceptors.request.use((config) => {
+//     config.url = config.url + '.json'
+//     return config
+//   })
+// }
+
+
+
 
 if (process.browser && process.static) {
   instance.interceptors.request.use((config) => {
@@ -35,6 +49,15 @@ if (process.server && process.static) {
     }
   )
 }
+
+if (isDev) {
+  instance.interceptors.response.use((response) => {
+    console.log('REQUEST', response.request)
+    console.log('RESPONSE', response)
+    return response
+  })
+}
+
 
 // export default instance
 export default (ctx, inject) => {
