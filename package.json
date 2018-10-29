@@ -2,7 +2,7 @@
   "name": "nuxtwp-static",
   "version": "0.0.1",
   "main": "index.js",
-  "author": "David Royer <droyer01@gmail.com>",  
+  "author": "David Royer <droyer01@gmail.com>",
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
@@ -12,8 +12,8 @@
   },
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.16.2",
+    "axios": "^0.18.0",
     "mkdirp-promise": "^5.0.1",
-    "nuxt": "^1.4.0"
+    "nuxt": "^2.2.0"
   }
 }
